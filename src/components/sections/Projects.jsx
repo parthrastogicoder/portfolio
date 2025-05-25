@@ -9,7 +9,7 @@ const Projects = () => {
       technologies: ["React.js", "Node.js", "DynamoDB", "Lambda", "AWS"],
       github: "",
       live: "",
-      image: "project1.jpg"
+      image: "image.png" 
     },
     {
       title: "Deception Detection in Diplomacy",
@@ -17,7 +17,7 @@ const Projects = () => {
       technologies: ["Python", "PyTorch", "NLTK", "Transformers", "NLP"],
       github: "https://github.com/parthrastogicoder/Deception_Detection/tree/main",
       live: "",
-      image: "project2.jpg"
+      image: "image2.png"
     },
     {
       title: "Shell-Scheduler",
@@ -25,7 +25,7 @@ const Projects = () => {
       technologies: ["C", "Linux", "Shell Scripting", "IPC", "Scheduling Algorithms"],
       github: "https://github.com/parthrastogicoder/shell-scheduler",
       live: "",
-      image: "project3.jpg"
+      image: "image3.png"
     },
     {
       title: "NetSafe-Network Intrusion Detection",
@@ -33,7 +33,7 @@ const Projects = () => {
       technologies: ["Python", "Scikit-Learn", "Machine Learning", "Data Processing", "Security"],
       github: "https://github.com/parthrastogicoder/ML-Project-Network_Intrusion_Detection",
       live: "",
-      image: "project4.jpg"
+      image: "image4.png"
     },
     {
       title: "Ground Water Quality Analysis",
@@ -41,7 +41,7 @@ const Projects = () => {
       technologies: ["R", "Statistics", "Regression Analysis", "Data Visualization", "Environmental Science"],
       github: "https://github.com/parthrastogicoder/GroundWaterQualityAnalysis-ECO221",
       live: "",
-      image: "project5.jpg"
+      image: "image5.png"
     },
     {
       title: "Stick Hero Game Clone",
@@ -49,7 +49,7 @@ const Projects = () => {
       technologies: ["Java", "Apache-Maven", "JavaFX", "OOP", "Design Patterns"],
       github: "https://github.com/parthrastogicoder/Stick_Hero_Clone",
       live: "",
-      image: "project6.jpg"
+      image: "image6.png"
     }
 
   ];
@@ -106,7 +106,7 @@ const Projects = () => {
             >
               <div className="h-48 bg-gray-300 relative overflow-hidden">
                 <img 
-                  src={`/portfolio/images/project${index + 1}.jpg`} 
+                  src={`/portfolio/images/${project.image}`} 
                   alt={project.title}
                   className="w-full h-full object-cover"
                 />

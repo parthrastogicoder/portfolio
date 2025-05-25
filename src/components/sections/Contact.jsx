@@ -115,7 +115,7 @@ const Contact = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-textColor">Phone</h4>
-                <p className="text-lightText">+91 9876543210</p>
+                <p className="text-lightText">+91 9819484105</p>
               </div>
             </motion.div>
             

@@ -7,12 +7,12 @@ const Skills = () => {
       skills: [
         { name: "Python", level: 95 },
         { name: "C++", level: 85 },
-        { name: "JavaScript", level: 80 },
+        { name: "JavaScript", level: 70 },
         { name: "Java", level: 75 },
         { name: "R", level: 75 },
         { name: "C", level: 80 },
         { name: "SQL", level: 85 },
-        { name: "TypeScript", level: 75 }
+        { name: "TypeScript", level: 70 }
       ]
     },
     {
@@ -25,19 +25,19 @@ const Skills = () => {
         { name: "Langchain", level: 80 },
         { name: "Scikit-learn", level: 85 },
         { name: "Time Series Analysis", level: 80 },
-        { name: "NVIDIA CUDA", level: 75 }
+        { name: "NVIDIA CUDA", level: 65 }
       ]
     },
     {
       title: "Web Development",
       skills: [
-        { name: "React.js", level: 80 },
-        { name: "Node.js", level: 75 },
-        { name: "FastAPI", level: 85 },
-        { name: "Tailwind CSS", level: 80 },
+        { name: "React.js", level: 65 },
+        { name: "Node.js", level: 70 },
+        { name: "FastAPI", level: 80 },
+        { name: "Tailwind CSS", level: 60 },
         { name: "Flask", level: 75 },
-        { name: "Express.js", level: 75 },
-        { name: "HTML/CSS", level: 85 }
+        { name: "Express.js", level: 70 },
+        { name: "HTML/CSS", level: 70 }
       ]
     },
     {
@@ -45,11 +45,11 @@ const Skills = () => {
       skills: [
         { name: "Git/GitHub", level: 90 },
         { name: "AWS Services", level: 85 },
-        { name: "Linux/Bash", level: 85 },
-        { name: "MySQL/DynamoDB", level: 85 },
-        { name: "Docker", level: 75 },
+        { name: "Linux/Bash", level: 75 },
+        { name: "MySQL/DynamoDB", level: 80 },
+        { name: "Docker", level: 55 },
         { name: "RESTful APIs", level: 85 },
-        { name: "Maven/Slurm", level: 75 }
+        { name: "Maven/Slurm", level: 70 }
       ]
     }
   ];

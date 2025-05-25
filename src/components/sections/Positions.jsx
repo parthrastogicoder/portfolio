@@ -10,21 +10,27 @@ const Positions = () => {
       icon: <FaLaptopCode className="text-primary" size={24} />
     },
     {
-      title: "Student Mentor",
-      organization: "IIIT Delhi",
-      description: "Guided first-year students in academic and non-academic matters, helping them adapt to university life and curriculum.",
+      title: "Head of Content and Social Media",
+      organization: "E-Cell, IIIT Delhi",
+      description: "Leading a team of 30 members under operations, managing content and social media strategy.",
       icon: <FaUsers className="text-primary" size={24} />
     },
     {
-      title: "Teaching Assistant",
-      organization: "Department of Computer Science, IIIT Delhi",
-      description: "Served as a TA for multiple courses including Machine Learning, Deep Learning, and Data Structures & Algorithms, providing academic support to students.",
-      icon: <FaLaptopCode className="text-primary" size={24} />
+      title: "Head, Organising Committee (Social Media & Coverage)",
+      organization: "E-Summit 2024, IIIT Delhi",
+      description: "Responsible for social media reach of 150k+ and coverage for E-Summit 2024.",
+      icon: <FaUsers className="text-primary" size={24} />
     },
     {
-      title: "Technical Team Member",
-      organization: "Google Developer Student Club (GDSC)",
-      description: "Contributed to technical events, workshops, and hackathons organized by GDSC at IIIT Delhi.",
+      title: "Student Mentor",
+      organization: "Tribal Youth Exchange Program, Ministry of Youth Affairs",
+      description: "Mentored students as part of the Tribal Youth Exchange Program. (Aug 2024)",
+      icon: <FaUsers className="text-primary" size={24} />
+    },
+    {
+      title: "Volunteer",
+      organization: "TiE Delhi IID 2023",
+      description: "Volunteered at TiE Delhi's Innovation and Investment Day 2023.",
       icon: <FaUsers className="text-primary" size={24} />
     }
   ];

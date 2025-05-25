@@ -4,38 +4,46 @@ import { FaBriefcase, FaCalendarAlt } from 'react-icons/fa';
 const Experience = () => {
   const experiences = [
     {
-      title: "Machine Learning Research Intern",
-      company: "Indian Institute of Technology, Ropar",
-      duration: "May 2023 - Aug 2023",
+      title: "Data Science Intern",
+      company: "Laika AI",
+      duration: "May 2025 - Present",
       description: [
-        "Collaborated on a novel research project focused on detecting deception in text using machine learning.",
-        "Developed and trained NLP models to identify deceptive patterns in written statements with 86% accuracy.",
-        "Employed transformer-based architectures including BERT, RoBERTa, and T5 models for feature extraction.",
-        "Implemented and compared multiple classification techniques to optimize detection performance."
+        "Designing the backend for Laika AI's multi-agent chatbot using modular design patterns (Factory, Strategy) for scalable tool orchestration and robust agent control flows.",
+        "Implemented, and tested 20+ production-ready tools for crypto analytics, live/historical pricing, NFT and wallet tracking, transaction management, search, document retrieval, and social media fetching.",
+        "Currently integrating tools with in-house streaming pipelines; leveraging FastAPI and AWS (Lambda, S3, DynamoDB) to enable persistent, real-time multi-agent hallucination free interactions."
       ]
     },
     {
-      title: "Software Development Intern",
-      company: "Fintech Startup",
-      duration: "Jan 2023 - Apr 2023",
+      title: "ML Intern",
+      company: "Heydo Tech",
+      duration: "Jan 2025 - Apr 2025",
       description: [
-        "Contributed to the development of a web-based financial management application using React and Node.js.",
-        "Implemented responsive UI components that improved user experience and accessibility.",
-        "Created API endpoints for data processing and integration with third-party financial services.",
-        "Collaborated with the design team to implement new features based on user feedback."
+        "Developed an end-to-end ML pipeline for the Apni Mandi project, modeling weekly sales trends using 3+ years of time series data covering 10,000+ SKUs across multiple stores.",
+        "Benchmarked LSTM, GRU, and Transformer architectures for multivariate forecasting; best model achieved a mean absolute error (MAE) of 4.5 on weekly prediction.",
+        "Performed seasonality decomposition and feature engineering (e.g., rolling statistics, calendar effects) over 3M data points to enhance signal quality and model performance."
       ]
     },
     {
-      title: "Research Assistant",
-      company: "IIIT Delhi Machine Learning Lab",
-      duration: "Aug 2022 - Dec 2022",
+      title: "Undergraduate Researcher",
+      company: "Infosys Center for AI",
+      duration: "Aug 2024 - May 2025",
       description: [
-        "Assisted in research projects related to computer vision and natural language processing.",
-        "Collected and preprocessed large datasets for model training and evaluation.",
-        "Implemented baseline models and conducted extensive literature reviews.",
-        "Contributed to research papers documenting experimental findings and methodologies."
+        "Engineering Generative AI Solution for Concurrent Data Structures(CDS) where we are Fine Tuning models like Qwen, Starcoderbase, Deepseek R1 distills for producing code and testing on Pass@K test specifically designed for CDS.",
+        "Performing techniques like LoRA, 8bit for optimization and GRPO for reasoning.",
+        "Scraped data from 60+ repositories for creation of comprehensive dataset with 5M+ Tokens across several languages.",
+        "Contributed in the development of a comprehensive library for Dynamic Bayesian Networks(DBNs) for causal learning for a global research collaboration named Codiet."
       ]
-    }
+    },
+    {
+      title: "Research Intern",
+      company: "Czech University of Technology at Prague (Remote)",
+      duration: "May 2024 - Aug 2024",
+      description: [
+        "Collaborated on Empirical Bayes pipeline code implementation along with production and analysis of numerical results for paper titled 'Empirical Bayes for Dynamic Bayesian Networks'.",
+        "Contributed to the development of a library for Dynamic Bayesian Networks (DBNs) for causal learning for a global research collaboration named Codiet."
+      ]
+    },
+
   ];
 
   const containerVariants = {

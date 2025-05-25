@@ -25,9 +25,9 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="rounded-lg overflow-hidden shadow-lg">
-              {/* Note: You should add your profile image to the assets folder */}
+              {/* Profile image */}
               <img 
-                src="/path/to/profile-image.jpg" 
+                src="/portfolio/images/profile.jpg" 
                 alt="Parth Rastogi" 
                 className="w-full h-auto"
                 onError={(e) => {
@@ -53,9 +53,10 @@ const About = () => {
               expanding my skills in AI and software engineering.
             </p>
             <p className="text-lightText mb-6">
-              My expertise spans across Python, R, C++, and JavaScript, with proficiency in frameworks 
-              like PyTorch, Transformers, and AWS services. I've worked on projects ranging from ML models 
-              for deception detection to ERP systems and shell schedulers.
+              My expertise spans across Python, R, C++, Java, and JavaScript, with proficiency in frameworks 
+              like PyTorch, Transformers, Pandas, Numpy, and AWS services. I've contributed to research 
+              projects in causal learning and autonomous systems, and developed production-ready software
+              for startups in the AI space.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -96,6 +97,7 @@ const About = () => {
                 <div>
                   <h4 className="font-semibold text-textColor">Education</h4>
                   <p className="text-lightText">BTech in CSE, IIIT Delhi (GPA: 9.05/10)</p>
+                  <p className="text-lightText text-sm">Relevant Coursework: Data Structures & Algorithms, Machine Learning, Deep Learning, Database Systems, Computer Networks</p>
                 </div>
               </div>
             </div>

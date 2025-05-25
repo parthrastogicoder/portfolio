@@ -4,37 +4,54 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 const Projects = () => {
   const projects = [
     {
-      title: "Deception Detection with NLP",
-      description: "A machine learning system that identifies deceptive statements in text using transformer-based models with 86% accuracy. Implemented BERT, RoBERTa, and T5 architectures with careful feature selection.",
-      technologies: ["Python", "PyTorch", "Transformers", "NLP", "Scikit-learn"],
-      github: "https://github.com/parthrastogicoder/deception-detection",
-      live: "https://huggingface.co/parth0908/deception-detection",
-      image: "project-deception.jpg"
-    },
-    {
-      title: "ERP System for Educational Institutions",
-      description: "A comprehensive enterprise resource planning system designed for schools and colleges, featuring modules for student management, attendance tracking, fee collection, and academic performance analysis.",
-      technologies: ["React", "Node.js", "Express", "MongoDB", "JWT"],
-      github: "https://github.com/parthrastogicoder/school-erp",
+      title: "ERP System Modules",
+      description: "Developed an Enterprise Resource Planning application for Aero Armour to optimize employee-specific operations. Integrated Shopify for order data, automated production workflows, quality checks, delivery preparation, and return handling.",
+      technologies: ["React.js", "Node.js", "DynamoDB", "Lambda", "AWS"],
+      github: "",
       live: "",
-      image: "project-erp.jpg"
+      image: "project1.jpg"
     },
     {
-      title: "Shell Scheduler",
-      description: "A custom UNIX shell scheduler implementing various CPU scheduling algorithms including FCFS, SJF, Round Robin, and Priority Scheduling with interactive visualization of process execution.",
-      technologies: ["C++", "POSIX", "Data Structures", "Algorithms"],
+      title: "Deception Detection in Diplomacy",
+      description: "Built HiS-Attention, a transformer-based multimodal fusion model integrating BERT message embeddings, structured game-state features, and ten-turn context achieving a 57.38% Macro F1 (Higher than prior SOTA) and 21.9% Lie F1.",
+      technologies: ["Python", "PyTorch", "NLTK", "Transformers", "NLP"],
+      github: "https://github.com/parthrastogicoder/Deception_Detection/tree/main",
+      live: "",
+      image: "project2.jpg"
+    },
+    {
+      title: "Shell-Scheduler",
+      description: "Designed a Linux shell with prompt display, command execution, and command history tracking along with a scheduler. Implemented IPC mechanisms including signal handling, piping, and background process management.",
+      technologies: ["C", "Linux", "Shell Scripting", "IPC", "Scheduling Algorithms"],
       github: "https://github.com/parthrastogicoder/shell-scheduler",
       live: "",
-      image: "project-shell.jpg"
+      image: "project3.jpg"
     },
     {
-      title: "Sentiment Analysis for Product Reviews",
-      description: "A machine learning system that analyzes customer reviews to determine sentiment and extract key insights. Utilizes BERT for classification and aspect-based sentiment analysis.",
-      technologies: ["Python", "NLP", "BERT", "Flask", "React"],
-      github: "https://github.com/parthrastogicoder/sentiment-analysis",
-      live: "https://sentiment-analysis-demo.herokuapp.com",
-      image: "project-sentiment.jpg"
+      title: "NetSafe-Network Intrusion Detection",
+      description: "Built a scalable ML pipeline achieving 83% accuracy using ANNs, ensemble methods and classical methods for network intrusion detection, processing over 4M network connections from the KDD Cup '99 dataset. Optimized model performance through feature engineering and hyperparameter tuning, reducing false positives by 35% while maintaining detection rates across 23 attack types divided into 5 broad categories.",
+      technologies: ["Python", "Scikit-Learn", "Machine Learning", "Data Processing", "Security"],
+      github: "https://github.com/parthrastogicoder/ML-Project-Network_Intrusion_Detection",
+      live: "",
+      image: "project4.jpg"
+    },
+    {
+      title: "Ground Water Quality Analysis",
+      description: "Analyzed 5,212 district-year observations with OLS regression to quantify how State Domestic Product affects groundwater Quality; baseline achieved R² = 4.5% with SDP coefficient significant at p < 0.001. Enhanced the model by adding Kuznets-curve polynomial terms (SDP², SDP³), Gini index and 22 year/region dummy variables—boosting R² by 20% to 25.7%—and applied studentized-residual and DFBETA diagnostics to deal with outliers.",
+      technologies: ["R", "Statistics", "Regression Analysis", "Data Visualization", "Environmental Science"],
+      github: "https://github.com/parthrastogicoder/GroundWaterQualityAnalysis-ECO221",
+      live: "",
+      image: "project5.jpg"
+    },
+    {
+      title: "Stick Hero Game Clone",
+      description: "Developed a GUI-based game incorporating Object Oriented Programming concepts. Utilized UML diagrams for better ideation and project planning. Included good programming practices like Design Patterns, Serialization and JUnit Testing.",
+      technologies: ["Java", "Apache-Maven", "JavaFX", "OOP", "Design Patterns"],
+      github: "https://github.com/parthrastogicoder/Stick_Hero_Clone",
+      live: "",
+      image: "project6.jpg"
     }
+
   ];
 
   const containerVariants = {
@@ -87,8 +104,12 @@ const Projects = () => {
               className="bg-white rounded-lg overflow-hidden shadow-lg"
               variants={itemVariants}
             >
-              <div className="h-48 bg-gray-300 relative">
-                {/* Replace with actual project images when available */}
+              <div className="h-48 bg-gray-300 relative overflow-hidden">
+                <img 
+                  src={`/portfolio/images/project${index + 1}.jpg`} 
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 flex items-center justify-center text-white text-xl font-semibold bg-gray-700 bg-opacity-50">
                   {project.title}
                 </div>

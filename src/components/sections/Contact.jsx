@@ -24,24 +24,40 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    // Using Formspree for form handling
+    fetch('https://formspree.io/f/xgejoknp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
       setIsSubmitting(false);
-      setSubmitStatus('success');
-      
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-      
-      // Clear success message after 5 seconds
+      if (response.ok) {
+        setSubmitStatus('success');
+        // Reset form after successful submission
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    })
+    .catch(error => {
+      setIsSubmitting(false);
+      setSubmitStatus('error');
+      console.error('Error submitting form:', error);
+    })
+    .finally(() => {
+      // Clear status message after 5 seconds
       setTimeout(() => {
         setSubmitStatus(null);
       }, 5000);
-    }, 1500);
+    });
   };
 
   const containerVariants = {

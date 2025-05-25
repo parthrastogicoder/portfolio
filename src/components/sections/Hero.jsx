@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaChevronDown } from 'react-icons/fa';
-import { SiHuggingface } from 'react-icons/si';
+import { FaGithub, FaLinkedin, FaEnvelope, FaChevronDown, FaCode } from 'react-icons/fa';
+import { SiHuggingface, SiLeetcode, SiCodeforces } from 'react-icons/si';
 import Typed from 'typed.js';
 import { motion } from 'framer-motion';
 
@@ -31,15 +31,15 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-textColor">
-            Hi, I'm <span className="text-primary">Parth Rastogi</span>
+            Hi, I'm <span className="text-primary">Parth Sandeep Rastogi</span>
           </h1>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-lightText">
             I'm a <span ref={typedRef} className="text-primary"></span>
           </h2>
           <p className="text-lg mb-8 text-lightText">
             CS student at IIIT Delhi with expertise in Machine Learning, Data Science, Research, 
-            and Software Development. I create innovative solutions for complex problems and 
-            enjoy working on projects that make an impact.
+            and Software Development. Currently working on generative AI solutions and multimodal
+            machine learning models, aiming to develop technology that addresses real-world challenges.
           </p>
           <div className="flex flex-wrap gap-4 mb-8">
             <a 
@@ -89,6 +89,24 @@ const Hero = () => {
               aria-label="Email"
             >
               <FaEnvelope size={24} />
+            </a>
+            <a 
+              href="https://leetcode.com/u/Halogen98/"
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-lightText hover:text-primary transition-colors"
+              aria-label="LeetCode"
+            >
+              <SiLeetcode size={24} />
+            </a>
+            <a 
+              href="https://codeforces.com/profile/parthhhhhhhhh"
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-lightText hover:text-primary transition-colors"
+              aria-label="Codeforces"
+            >
+              <SiCodeforces size={24} />
             </a>
           </div>
         </motion.div>

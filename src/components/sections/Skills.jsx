@@ -8,38 +8,48 @@ const Skills = () => {
         { name: "Python", level: 95 },
         { name: "C++", level: 85 },
         { name: "JavaScript", level: 80 },
+        { name: "Java", level: 75 },
         { name: "R", level: 75 },
-        { name: "SQL", level: 85 }
+        { name: "C", level: 80 },
+        { name: "SQL", level: 85 },
+        { name: "TypeScript", level: 75 }
       ]
     },
     {
       title: "Machine Learning & AI",
       skills: [
         { name: "PyTorch", level: 90 },
-        { name: "Hugging Face Transformers", level: 85 },
-        { name: "Scikit-learn", level: 90 },
-        { name: "TensorFlow", level: 80 },
-        { name: "NLP", level: 85 }
+        { name: "Transformers", level: 85 },
+        { name: "Pandas/Numpy", level: 90 },
+        { name: "NLP", level: 85 },
+        { name: "Langchain", level: 80 },
+        { name: "Scikit-learn", level: 85 },
+        { name: "Time Series Analysis", level: 80 },
+        { name: "NVIDIA CUDA", level: 75 }
       ]
     },
     {
       title: "Web Development",
       skills: [
-        { name: "HTML/CSS", level: 90 },
-        { name: "React", level: 80 },
+        { name: "React.js", level: 80 },
         { name: "Node.js", level: 75 },
-        { name: "Tailwind CSS", level: 85 },
-        { name: "Flask", level: 80 }
+        { name: "FastAPI", level: 85 },
+        { name: "Tailwind CSS", level: 80 },
+        { name: "Flask", level: 75 },
+        { name: "Express.js", level: 75 },
+        { name: "HTML/CSS", level: 85 }
       ]
     },
     {
       title: "Tools & Technologies",
       skills: [
-        { name: "Git", level: 90 },
-        { name: "AWS", level: 80 },
+        { name: "Git/GitHub", level: 90 },
+        { name: "AWS Services", level: 85 },
+        { name: "Linux/Bash", level: 85 },
+        { name: "MySQL/DynamoDB", level: 85 },
         { name: "Docker", level: 75 },
-        { name: "Linux", level: 85 },
-        { name: "Jupyter", level: 95 }
+        { name: "RESTful APIs", level: 85 },
+        { name: "Maven/Slurm", level: 75 }
       ]
     }
   ];

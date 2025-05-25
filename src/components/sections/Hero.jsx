@@ -31,7 +31,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-textColor">
-            Hi, I'm <span className="text-primary">Parth Sandeep Rastogi</span>
+            Hi, I'm <span className="text-primary">Parth Rastogi</span>
           </h1>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-lightText">
             I'm a <span ref={typedRef} className="text-primary"></span>

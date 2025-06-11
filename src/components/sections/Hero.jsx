@@ -1,19 +1,25 @@
-import { useEffect, useRef } from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaChevronDown, FaCode } from 'react-icons/fa';
-import { SiHuggingface, SiLeetcode, SiCodeforces } from 'react-icons/si';
-import Typed from 'typed.js';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaEnvelope, FaChevronDown, FaDownload } from 'react-icons/fa';
+import { SiLeetcode, SiCodeforces, SiHuggingface } from 'react-icons/si';
+import Typed from 'typed.js';
 
 const Hero = () => {
   const typedRef = useRef(null);
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ['ML Engineer', 'Data Scientist', 'Researcher', 'Software Developer', 'CS Student'],
-      typeSpeed: 80,
-      backSpeed: 60,
-      backDelay: 2000,
-      loop: true
+      strings: [
+        'ML Engineer',
+        'Data Scientist', 
+        'CS Researcher',
+        'Backend Developer'
+      ],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
     });
 
     return () => {
@@ -47,6 +53,16 @@ const Hero = () => {
               className="px-6 py-3 bg-primary hover:bg-secondary text-white rounded-md transition-colors font-medium"
             >
               View My Work
+            </a>
+            <a 
+              href="/portfolio/resume.pdf" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-secondary hover:bg-primary text-white rounded-md transition-colors font-medium flex items-center gap-2"
+              download="Parth_Rastogi_Resume.pdf"
+            >
+              <FaDownload size={16} />
+              Download Resume
             </a>
             <a 
               href="#contact" 

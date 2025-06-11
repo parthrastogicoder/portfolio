@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
-import { useState } from 'react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,7 +9,6 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
@@ -20,23 +19,29 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Using Formspree for form handling
-    fetch('https://formspree.io/f/xgejoknp', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch('https://formspree.io/f/xeokgjjz', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _replyto: formData.email,
+          _subject: `Portfolio Contact: ${formData.subject}`,
+        })
+      });
+      
       if (response.ok) {
         setSubmitStatus('success');
-        // Reset form after successful submission
         setFormData({
           name: '',
           email: '',
@@ -46,37 +51,32 @@ const Contact = () => {
       } else {
         setSubmitStatus('error');
       }
-    })
-    .catch(error => {
-      setIsSubmitting(false);
+    } catch (error) {
       setSubmitStatus('error');
       console.error('Error submitting form:', error);
-    })
-    .finally(() => {
-      // Clear status message after 5 seconds
+    } finally {
+      setIsSubmitting(false);
       setTimeout(() => {
         setSubmitStatus(null);
       }, 5000);
-    });
+    }
   };
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
+      y: 0,
       transition: {
-        staggerChildren: 0.2
+        duration: 0.6,
+        staggerChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5 }
-    }
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
   };
 
   return (
@@ -156,6 +156,12 @@ const Contact = () => {
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
                   Your message has been sent successfully! I'll get back to you soon.
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-lg">
+                  There was an error sending your message. Please try again.
                 </div>
               )}
               

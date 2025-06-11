@@ -96,7 +96,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-textColor">Education</h4>
-                  <p className="text-lightText">BTech in CSE, IIIT Delhi (GPA: 9.05/10)</p>
+                  <p className="text-lightText">BTech in CSE, IIIT Delhi (GPA: 9.14/10)</p>
                   <p className="text-lightText text-sm">Relevant Coursework: Data Structures & Algorithms, Machine Learning, Deep Learning, Database Systems, Computer Networks</p>
                 </div>
               </div>

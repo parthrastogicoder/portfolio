@@ -1,53 +1,131 @@
-# GitHub Pages Deployment Guide
+# Portfolio Website Deployment Guide
 
-Follow these steps to deploy your portfolio to GitHub Pages:
+## 🔐 Secure Deployment with Hidden API Keys
 
-## 1. Create a GitHub Repository
+This guide explains how to deploy your portfolio website to GitHub Pages while keeping your API keys secure.
 
-1. Go to [GitHub](https://github.com) and sign in to your account
-2. Click on the "+" icon in the top right corner and select "New repository"
-3. Name the repository "portfolio" (must match the name in package.json's homepage URL)
-4. Make the repository public
-5. Click "Create repository"
+### 🚀 Quick Start
 
-## 2. Initialize Git Repository Locally (if not already done)
+1. **Setup Environment Variables**
+   ```bash
+   cp .env.example .env
+   # Edit .env and add your actual API keys
+   ```
 
+2. **Deploy**
+   ```bash
+   chmod +x deploy.sh
+   ./deploy.sh
+   ```
+
+### 🔒 Security Features
+
+- ✅ `.env` file is automatically ignored by git
+- ✅ API keys are never committed to the repository
+- ✅ GitHub Actions uses secure environment variables
+- ✅ Automated deployment with proper security
+
+### 🛠️ Manual Setup
+
+#### 1. Environment Variables
+Create a `.env` file in the root directory:
+```env
+VITE_TOGETHER_API_KEY=your_actual_api_key_here
+```
+
+#### 2. GitHub Repository Secrets
+For automatic deployment via GitHub Actions:
+
+1. Go to your GitHub repository
+2. Navigate to **Settings** > **Secrets and variables** > **Actions**
+3. Click **New repository secret**
+4. Add the following secrets:
+   - Name: `VITE_TOGETHER_API_KEY`
+   - Value: Your Together AI API key
+
+#### 3. Enable GitHub Pages
+1. Go to **Settings** > **Pages**
+2. Source: **Deploy from a branch**
+3. Branch: **gh-pages**
+4. Folder: **/ (root)**
+
+### 🔄 Deployment Methods
+
+#### Method 1: Automatic (Recommended)
+Push to main branch - GitHub Actions handles the rest:
 ```bash
-cd /home/parth/Desktop/Portfolio
-git init
 git add .
-git commit -m "Initial commit"
+git commit -m "Update portfolio"
+git push origin main
 ```
 
-## 3. Connect to Remote Repository
-
-Replace `USERNAME` with your GitHub username:
-
+#### Method 2: Manual
+Run the deployment script:
 ```bash
-git remote add origin https://github.com/parthrastogicoder/portfolio.git
+./deploy.sh
 ```
 
-## 4. Push Code to GitHub
-
+#### Method 3: Direct npm
 ```bash
-git branch -M main
-git push -u origin main
-```
-
-## 5. Deploy to GitHub Pages
-
-```bash
+npm run build
 npm run deploy
 ```
 
-This command will:
-1. Build your project (`npm run build`)
-2. Push the build files to the `gh-pages` branch on GitHub
+### 📁 File Structure
+```
+portfolio/
+├── .env                    # Your API keys (never committed)
+├── .env.example           # Template for API keys
+├── .github/workflows/     # GitHub Actions for deployment
+│   └── deploy.yml
+├── deploy.sh              # Deployment script
+├── src/
+│   └── components/
+│       └── ui/
+│           └── PersonalChatbot.jsx
+└── ...
+```
 
-## 6. Configure GitHub Pages
+### 🌐 Live Site
+After deployment, your portfolio will be available at:
+`https://yourusername.github.io/portfolio`
 
-1. Go to your repository on GitHub
-2. Click "Settings" > "Pages"
+### 🔧 Troubleshooting
+
+**API Key Issues:**
+- Ensure your `.env` file has the correct API key
+- Check that the GitHub secret name matches exactly: `VITE_TOGETHER_API_KEY`
+- Verify the API key is valid at [Together AI](https://api.together.xyz/)
+
+**Deployment Issues:**
+- Check GitHub Actions tab for build logs
+- Ensure GitHub Pages is enabled in repository settings
+- Wait 5-10 minutes for changes to propagate
+
+**Chatbot Not Working:**
+- Check browser console for API errors
+- Verify the API key is properly loaded
+- Test the API key directly on Together AI platform
+
+### 🔐 Security Best Practices
+
+1. **Never commit API keys** - Always use environment variables
+2. **Use GitHub Secrets** for automatic deployments
+3. **Regularly rotate API keys** for security
+4. **Monitor API usage** to detect unauthorized access
+5. **Use HTTPS** for all deployments (GitHub Pages provides this)
+
+### 📞 Support
+
+If you encounter issues:
+1. Check the GitHub Actions logs
+2. Verify your API key is correct
+3. Ensure all secrets are properly set
+4. Test locally first with `npm run dev`
+
+---
+
+**🎉 Your portfolio is now deployed securely with hidden API keys!**
 3. In the "Source" section, select "Deploy from a branch"
 4. In the "Branch" section, select "gh-pages" and "/(root)"
 5. Click "Save"

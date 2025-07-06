@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaRobot, FaTimes, FaPaperPlane, FaUser } from 'react-icons/fa';
+import { FaComments, FaTimes, FaPaperPlane, FaRobot, FaUser } from 'react-icons/fa';
 import { useTheme } from '../../contexts/ThemeContext';
 
-const PersonalChatbot = () => {
+const PersonalChatbot = ({ onToggle }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
@@ -23,6 +23,12 @@ const PersonalChatbot = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  useEffect(() => {
+    if (onToggle) {
+      onToggle(isOpen);
+    }
+  }, [isOpen, onToggle]);
 
   // Personal information about Parth
   const personalInfo = `
@@ -131,50 +137,91 @@ Always respond in a helpful, professional tone as if you're representing Parth's
 
   return (
     <>
-      {/* Chat Icon */}
-      <motion.button
-        onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 p-4 bg-primary dark:bg-dark-primary text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 ${
-          isOpen ? 'scale-0' : 'scale-100'
-        }`}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        aria-label="Open chat"
+      {/* Chat Icon with Tooltip */}
+      <motion.div
+        className="fixed bottom-6 right-6 z-40 group"
+        initial={{ scale: 0 }}
+        animate={{ scale: isOpen ? 0 : 1 }}
+        transition={{ duration: 0.3 }}
       >
-        <FaRobot size={24} />
-      </motion.button>
+        {/* Tooltip */}
+        <div className="absolute bottom-full right-0 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <div className="bg-gray-800 dark:bg-gray-700 text-white text-sm px-4 py-2 rounded-xl shadow-lg whitespace-nowrap">
+            Want to learn more about Parth?
+            <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800 dark:border-t-gray-700"></div>
+          </div>
+        </div>
+        
+        {/* Chat Button with Sunglasses */}
+        <motion.button
+          onClick={() => setIsOpen(true)}
+          className="relative p-4 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ring-4 ring-white dark:ring-dark-surface"
+          whileHover={{ scale: 1.05, rotate: 2 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Chat with Parth's AI assistant"
+        >
+          {/* Online indicator */}
+          <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center animate-pulse shadow-md">
+            <div className="w-2 h-2 bg-white rounded-full"></div>
+          </div>
+          
+          <span className="text-3xl">😎</span>
+          
+          {/* Animated dots */}
+          <div className="absolute -top-3 -left-3 flex space-x-1">
+            <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce shadow-sm" style={{ animationDelay: '0s' }}></div>
+            <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce shadow-sm" style={{ animationDelay: '0.2s' }}></div>
+            <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce shadow-sm" style={{ animationDelay: '0.4s' }}></div>
+          </div>
+        </motion.button>
+      </motion.div>
 
       {/* Chat Sidebar */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-            className="fixed top-0 right-0 h-full w-80 bg-white dark:bg-dark-surface shadow-2xl z-50 flex flex-col"
-          >
+          <>
+            {/* Mobile backdrop */}
+            <motion.div
+              className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
+              onClick={() => setIsOpen(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+              className="fixed top-20 right-4 w-80 max-w-[calc(100vw-2rem)] h-[calc(100vh-6rem)] bg-white dark:bg-dark-surface shadow-2xl z-40 flex flex-col rounded-lg border border-gray-200 dark:border-dark-border overflow-hidden md:w-96 md:right-6"
+            >
             {/* Header */}
-            <div className="p-4 border-b border-gray-200 dark:border-dark-border flex items-center justify-between">
+            <div className="flex-shrink-0 p-4 border-b border-gray-200 dark:border-dark-border flex items-center justify-between bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-dark-primary/10 dark:to-dark-secondary/10">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-primary dark:bg-dark-primary rounded-full">
-                  <FaRobot className="text-white" size={16} />
+                <div className="relative">
+                  <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-lg">
+                    <span className="text-xl">😎</span>
+                  </div>
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-dark-surface animate-pulse"></div>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-textColor dark:text-dark-text">Parth's Assistant</h3>
-                  <p className="text-sm text-lightText dark:text-dark-light-text">Ask me anything!</p>
+                  <h3 className="font-semibold text-textColor dark:text-dark-text">Parth's AI Assistant</h3>
+                  <p className="text-sm text-lightText dark:text-dark-light-text flex items-center">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                    Online & Ready to Help
+                  </p>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1 hover:bg-gray-100 dark:hover:bg-dark-card rounded-full transition-colors"
+                className="p-2 hover:bg-gray-100 dark:hover:bg-dark-card rounded-full transition-all duration-200 hover:scale-110"
               >
                 <FaTimes className="text-lightText dark:text-dark-light-text" size={18} />
               </button>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
               {messages.map((message, index) => (
                 <div
                   key={index}
@@ -182,36 +229,36 @@ Always respond in a helpful, professional tone as if you're representing Parth's
                     message.role === 'user' ? 'flex-row-reverse space-x-reverse' : ''
                   }`}
                 >
-                  <div className={`p-2 rounded-full ${
+                  <div className={`p-2 rounded-full shadow-sm ${
                     message.role === 'user' 
-                      ? 'bg-primary dark:bg-dark-primary' 
-                      : 'bg-gray-200 dark:bg-dark-card'
+                      ? 'bg-gradient-to-br from-primary to-secondary dark:from-dark-primary dark:to-dark-secondary' 
+                      : 'bg-gradient-to-br from-blue-500 to-purple-600'
                   }`}>
                     {message.role === 'user' ? (
                       <FaUser className="text-white" size={12} />
                     ) : (
-                      <FaRobot className="text-primary dark:text-dark-primary" size={12} />
+                      <span className="text-sm">😎</span>
                     )}
                   </div>
-                  <div className={`max-w-xs p-3 rounded-lg ${
+                  <div className={`max-w-[calc(100%-3rem)] p-3 rounded-lg shadow-sm ${
                     message.role === 'user'
-                      ? 'bg-primary dark:bg-dark-primary text-white'
-                      : 'bg-gray-100 dark:bg-dark-card text-textColor dark:text-dark-text'
+                      ? 'bg-gradient-to-br from-primary to-secondary dark:from-dark-primary dark:to-dark-secondary text-white'
+                      : 'bg-gray-100 dark:bg-dark-card text-textColor dark:text-dark-text border border-gray-200 dark:border-dark-border'
                   }`}>
-                    <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                    <p className="text-sm whitespace-pre-wrap leading-relaxed">{message.content}</p>
                   </div>
                 </div>
               ))}
               {isLoading && (
                 <div className="flex items-start space-x-2">
-                  <div className="p-2 bg-gray-200 dark:bg-dark-card rounded-full">
-                    <FaRobot className="text-primary dark:text-dark-primary" size={12} />
+                  <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-sm">
+                    <span className="text-sm">😎</span>
                   </div>
-                  <div className="bg-gray-100 dark:bg-dark-card p-3 rounded-lg">
+                  <div className="bg-gray-100 dark:bg-dark-card p-3 rounded-lg shadow-sm border border-gray-200 dark:border-dark-border">
                     <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="w-2 h-2 bg-primary dark:bg-dark-primary rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-primary dark:bg-dark-primary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                      <div className="w-2 h-2 bg-primary dark:bg-dark-primary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                     </div>
                   </div>
                 </div>
@@ -220,27 +267,32 @@ Always respond in a helpful, professional tone as if you're representing Parth's
             </div>
 
             {/* Input */}
-            <div className="p-4 border-t border-gray-200 dark:border-dark-border">
-              <div className="flex space-x-2">
+            <div className="flex-shrink-0 p-4 border-t border-gray-200 dark:border-dark-border bg-white dark:bg-dark-surface">
+              <div className="flex gap-3 items-end max-w-full">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Ask about Parth's experience, skills, projects..."
-                  className="flex-1 px-3 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-dark-primary bg-white dark:bg-dark-card text-textColor dark:text-dark-text"
+                  className="flex-1 min-w-0 px-4 py-3 border border-gray-300 dark:border-dark-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-dark-primary focus:border-transparent bg-white dark:bg-dark-card text-textColor dark:text-dark-text text-sm transition-all duration-200 shadow-sm"
                   disabled={isLoading}
                 />
                 <button
                   onClick={sendMessage}
-                  disabled={isLoading || !input.trim()}
-                  className="p-2 bg-primary dark:bg-dark-primary text-white rounded-lg hover:bg-secondary dark:hover:bg-dark-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={isLoading}
+                  className="flex-shrink-0 w-11 h-11 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 active:scale-95 shadow-sm"
                 >
-                  <FaPaperPlane size={16} />
+                  {isLoading ? (
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  ) : (
+                    <span className="text-white text-lg">✈️</span>
+                  )}
                 </button>
               </div>
             </div>
           </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

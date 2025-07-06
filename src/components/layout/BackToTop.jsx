@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
 
-const BackToTop = () => {
+const BackToTop = ({ isChatOpen }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   // Show button when page is scrolled down
@@ -29,9 +29,11 @@ const BackToTop = () => {
 
   return (
     <button
-      className={`fixed bottom-8 right-8 p-3 bg-primary dark:bg-dark-primary text-white rounded-full shadow-lg hover:bg-secondary dark:hover:bg-dark-secondary transition-all duration-300 transform ${
+      className={`fixed bottom-8 p-3 bg-primary dark:bg-dark-primary text-white rounded-full shadow-lg hover:bg-secondary dark:hover:bg-dark-secondary transition-all duration-300 transform ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
-      } z-40`}
+      } z-30 ${
+        isChatOpen ? 'right-[22rem]' : 'right-8'
+      }`}
       onClick={scrollToTop}
       aria-label="Back to top"
     >

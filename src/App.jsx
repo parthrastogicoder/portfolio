@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -20,6 +20,8 @@ import Positions from './components/sections/Positions';
 import Contact from './components/sections/Contact';
 
 function App() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   useEffect(() => {
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -55,8 +57,8 @@ function App() {
             <Contact />
           </main>
           <Footer />
-          <BackToTop />
-          <PersonalChatbot />
+          <BackToTop isChatOpen={isChatOpen} />
+          <PersonalChatbot onToggle={setIsChatOpen} />
         </div>
       </Router>
     </ThemeProvider>

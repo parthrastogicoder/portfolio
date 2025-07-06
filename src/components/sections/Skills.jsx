@@ -6,8 +6,8 @@ const Skills = () => {
       title: "Programming Languages",
       skills: [
         { name: "Python", level: 95 },
-        { name: "C++", level: 85 },
-        { name: "JavaScript", level: 70 },
+        { name: "C++", level: 90 },
+        { name: "JavaScript", level: 65 },
         { name: "Java", level: 75 },
         { name: "R", level: 75 },
         { name: "C", level: 80 },
@@ -22,8 +22,8 @@ const Skills = () => {
         { name: "Transformers", level: 85 },
         { name: "Pandas/Numpy", level: 90 },
         { name: "NLP", level: 85 },
-        { name: "Langchain", level: 80 },
-        { name: "Scikit-learn", level: 85 },
+        { name: "Langchain", level: 70 },
+        { name: "Scikit-learn", level: 80 },
         { name: "Time Series Analysis", level: 80 },
         { name: "NVIDIA CUDA", level: 65 }
       ]
@@ -34,10 +34,10 @@ const Skills = () => {
         { name: "React.js", level: 65 },
         { name: "Node.js", level: 70 },
         { name: "FastAPI", level: 80 },
-        { name: "Tailwind CSS", level: 60 },
-        { name: "Flask", level: 75 },
-        { name: "Express.js", level: 70 },
-        { name: "HTML/CSS", level: 70 }
+        { name: "Tailwind CSS", level: 50 },
+        { name: "Flask", level: 70 },
+        { name: "Express.js", level: 50 },
+        { name: "HTML/CSS", level: 50 }
       ]
     },
     {
@@ -48,8 +48,8 @@ const Skills = () => {
         { name: "Linux/Bash", level: 75 },
         { name: "MySQL/DynamoDB", level: 80 },
         { name: "Docker", level: 55 },
-        { name: "RESTful APIs", level: 85 },
-        { name: "Maven/Slurm", level: 70 }
+        { name: "RESTful APIs", level: 80 },
+        { name: "Maven/Slurm", level: 65 }
       ]
     }
   ];

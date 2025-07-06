@@ -25,7 +25,7 @@ const Awards = () => {
     },
     {
       title: "Competitive Programming",
-      description: "Solved 800+ algorithm problems combined over LeetCode and Codeforces. Reached Specialist (Max. 1400) on Codeforces.",
+      description: "Solved 850+ algorithm problems combined over LeetCode and Codeforces. Reached Specialist (Max. 1400) on Codeforces.",
       icon: <FaStar className="text-yellow-500" size={24} />
     }
   ];

@@ -7,6 +7,7 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import BackToTop from './components/layout/BackToTop';
+import PersonalChatbot from './components/ui/PersonalChatbot';
 
 // Section Components
 import Hero from './components/sections/Hero';
@@ -55,6 +56,7 @@ function App() {
           </main>
           <Footer />
           <BackToTop />
+          <PersonalChatbot />
         </div>
       </Router>
     </ThemeProvider>

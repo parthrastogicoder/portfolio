@@ -7,31 +7,31 @@ const Positions = () => {
       title: "Software Product Design Mentor",
       organization: "Centre for Intelligent Product Development",
       description: "Responsible for mentoring and nourishing student ideas in software product design and development.",
-      icon: <FaLaptopCode className="text-primary" size={24} />
+      icon: <FaLaptopCode className="text-primary dark:text-dark-primary" size={24} />
     },
     {
       title: "Head of Content and Social Media",
       organization: "E-Cell, IIIT Delhi",
       description: "Leading a team of 30 members under operations, managing content and social media strategy.",
-      icon: <FaUsers className="text-primary" size={24} />
+      icon: <FaUsers className="text-primary dark:text-dark-primary" size={24} />
     },
     {
       title: "Head, Organising Committee (Social Media & Coverage)",
       organization: "E-Summit 2024, IIIT Delhi",
       description: "Responsible for social media reach of 150k+ and coverage for E-Summit 2024.",
-      icon: <FaUsers className="text-primary" size={24} />
+      icon: <FaUsers className="text-primary dark:text-dark-primary" size={24} />
     },
     {
       title: "Student Mentor",
       organization: "Tribal Youth Exchange Program, Ministry of Youth Affairs",
       description: "Mentored students as part of the Tribal Youth Exchange Program. (Aug 2024)",
-      icon: <FaUsers className="text-primary" size={24} />
+      icon: <FaUsers className="text-primary dark:text-dark-primary" size={24} />
     },
     {
       title: "Volunteer",
       organization: "TiE Delhi IID 2023",
       description: "Volunteered at TiE Delhi's Innovation and Investment Day 2023.",
-      icon: <FaUsers className="text-primary" size={24} />
+      icon: <FaUsers className="text-primary dark:text-dark-primary" size={24} />
     }
   ];
 
@@ -55,7 +55,7 @@ const Positions = () => {
   };
 
   return (
-    <section id="positions" className="py-20 bg-gray-50">
+    <section id="positions" className="py-20 bg-gray-50 dark:bg-dark-surface transition-colors duration-300">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
@@ -64,9 +64,9 @@ const Positions = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-textColor mb-4">Positions of Responsibility</h2>
-          <div className="w-24 h-1 bg-primary mx-auto"></div>
-          <p className="mt-6 text-lightText max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-textColor dark:text-dark-text mb-4">Positions of Responsibility</h2>
+          <div className="w-24 h-1 bg-primary dark:bg-dark-primary mx-auto"></div>
+          <p className="mt-6 text-lightText dark:text-dark-light-text max-w-3xl mx-auto">
             Leadership roles and responsibilities I've undertaken during my academic journey.
           </p>
         </motion.div>
@@ -81,14 +81,14 @@ const Positions = () => {
           {positions.map((position, index) => (
             <motion.div 
               key={index} 
-              className="bg-cardBg rounded-lg p-6 shadow-md flex items-start mb-6"
+              className="bg-cardBg dark:bg-dark-card rounded-lg p-6 shadow-md dark:shadow-dark-surface/50 flex items-start mb-6 hover:shadow-lg dark:hover:shadow-dark-card/50 transition-shadow duration-300"
               variants={itemVariants}
             >
               <div className="mr-4 mt-1">{position.icon}</div>
               <div>
-                <h3 className="text-xl font-semibold text-textColor mb-1">{position.title}</h3>
-                <h4 className="text-md text-primary mb-2">{position.organization}</h4>
-                <p className="text-lightText">{position.description}</p>
+                <h3 className="text-xl font-semibold text-textColor dark:text-dark-text mb-1">{position.title}</h3>
+                <h4 className="text-md text-primary dark:text-dark-primary mb-2">{position.organization}</h4>
+                <p className="text-lightText dark:text-dark-light-text">{position.description}</p>
               </div>
             </motion.div>
           ))}

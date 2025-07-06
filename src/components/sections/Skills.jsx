@@ -31,25 +31,23 @@ const Skills = () => {
     {
       title: "Web Development",
       skills: [
-        { name: "React.js", level: 65 },
-        { name: "Node.js", level: 70 },
-        { name: "FastAPI", level: 80 },
-        { name: "Tailwind CSS", level: 50 },
-        { name: "Flask", level: 70 },
-        { name: "Express.js", level: 50 },
-        { name: "HTML/CSS", level: 50 }
+        { name: "HTML/CSS", level: 85 },
+        { name: "React", level: 80 },
+        { name: "Node.js", level: 75 },
+        { name: "Express", level: 70 },
+        { name: "MongoDB", level: 70 },
+        { name: "REST APIs", level: 85 }
       ]
     },
     {
       title: "Tools & Technologies",
       skills: [
-        { name: "Git/GitHub", level: 90 },
-        { name: "AWS Services", level: 85 },
-        { name: "Linux/Bash", level: 75 },
-        { name: "MySQL/DynamoDB", level: 80 },
-        { name: "Docker", level: 55 },
-        { name: "RESTful APIs", level: 80 },
-        { name: "Maven/Slurm", level: 65 }
+        { name: "Git", level: 90 },
+        { name: "Docker", level: 70 },
+        { name: "AWS", level: 75 },
+        { name: "Linux", level: 85 },
+        { name: "Jupyter", level: 90 },
+        { name: "VS Code", level: 95 }
       ]
     }
   ];
@@ -69,12 +67,14 @@ const Skills = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.5 }
+      transition: {
+        duration: 0.5
+      }
     }
   };
 
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    <section id="skills" className="py-20 bg-gray-50 dark:bg-dark-surface transition-colors duration-300">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
@@ -83,46 +83,46 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-textColor mb-4">Skills</h2>
-          <div className="w-24 h-1 bg-primary mx-auto"></div>
-          <p className="mt-6 text-lightText max-w-3xl mx-auto">
-            I've developed a diverse skill set that allows me to work across various domains in computer science,
-            with a special focus on machine learning and software development.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-textColor dark:text-dark-text mb-4">Skills & Technologies</h2>
+          <div className="w-24 h-1 bg-primary dark:bg-dark-primary mx-auto"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {skillCategories.map((category, categoryIndex) => (
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {skillCategories.map((category, index) => (
             <motion.div 
-              key={categoryIndex}
-              className="bg-white p-6 rounded-lg shadow-md"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              key={index}
+              variants={itemVariants}
+              className="bg-white dark:bg-dark-card rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <h3 className="text-xl font-semibold text-textColor mb-6 border-b border-gray-200 pb-2">
-                {category.title}
-              </h3>
-              <div className="space-y-5">
+              <h3 className="text-xl font-semibold text-textColor dark:text-dark-text mb-6">{category.title}</h3>
+              <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
-                  <motion.div key={skillIndex} variants={itemVariants}>
-                    <div className="flex justify-between mb-1">
-                      <span className="font-medium text-textColor">{skill.name}</span>
-                      <span className="text-lightText">{skill.level}%</span>
+                  <div key={skillIndex} className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="text-lightText dark:text-dark-light-text font-medium">{skill.name}</span>
+                      <span className="text-primary dark:text-dark-primary font-semibold">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
-                      <div 
-                        className="bg-primary h-2.5 rounded-full" 
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
+                    <div className="w-full bg-gray-200 dark:bg-dark-border rounded-full h-2">
+                      <motion.div 
+                        className="bg-gradient-to-r from-primary to-secondary dark:from-dark-primary dark:to-dark-secondary h-2 rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: skillIndex * 0.1 }}
+                      />
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

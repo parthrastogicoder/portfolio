@@ -50,7 +50,7 @@ const Awards = () => {
   };
 
   return (
-    <section id="awards" className="py-20 bg-white">
+    <section id="awards" className="py-20 bg-white dark:bg-dark-bg transition-colors duration-300">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
@@ -59,9 +59,9 @@ const Awards = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-textColor mb-4">Awards & Achievements</h2>
-          <div className="w-24 h-1 bg-primary mx-auto"></div>
-          <p className="mt-6 text-lightText max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-textColor dark:text-dark-text mb-4">Awards & Achievements</h2>
+          <div className="w-24 h-1 bg-primary dark:bg-dark-primary mx-auto"></div>
+          <p className="mt-6 text-lightText dark:text-dark-light-text max-w-3xl mx-auto">
             Recognition for academic excellence and technical achievements throughout my academic journey.
           </p>
         </motion.div>
@@ -76,13 +76,13 @@ const Awards = () => {
           {awards.map((award, index) => (
             <motion.div 
               key={index} 
-              className="bg-cardBg rounded-lg p-6 shadow-md flex items-start"
+              className="bg-cardBg dark:bg-dark-surface rounded-lg p-6 shadow-md dark:shadow-dark-surface/50 flex items-start hover:shadow-lg dark:hover:shadow-dark-card/50 transition-shadow duration-300"
               variants={itemVariants}
             >
               <div className="mr-4 mt-1">{award.icon}</div>
               <div>
-                <h3 className="text-xl font-semibold text-textColor mb-2">{award.title}</h3>
-                <p className="text-lightText">{award.description}</p>
+                <h3 className="text-xl font-semibold text-textColor dark:text-dark-text mb-2">{award.title}</h3>
+                <p className="text-lightText dark:text-dark-light-text">{award.description}</p>
               </div>
             </motion.div>
           ))}

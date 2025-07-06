@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 // Layout Components
 import Navbar from './components/layout/Navbar';
@@ -38,23 +39,25 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
-          <Hero />
-          <About />
-          <Skills />
-          <Experience />
-          <Projects />
-          <Awards />
-          <Positions />
-          <Contact />
-        </main>
-        <Footer />
-        <BackToTop />
-      </div>
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <div className="flex flex-col min-h-screen bg-background dark:bg-dark-bg transition-colors duration-300">
+          <Navbar />
+          <main className="flex-grow">
+            <Hero />
+            <About />
+            <Skills />
+            <Experience />
+            <Projects />
+            <Awards />
+            <Positions />
+            <Contact />
+          </main>
+          <Footer />
+          <BackToTop />
+        </div>
+      </Router>
+    </ThemeProvider>
   )
 }
 

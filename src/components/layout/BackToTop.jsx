@@ -29,7 +29,9 @@ const BackToTop = () => {
 
   return (
     <button
-      className={`back-to-top ${isVisible ? 'visible' : ''}`}
+      className={`fixed bottom-8 right-8 p-3 bg-primary dark:bg-dark-primary text-white rounded-full shadow-lg hover:bg-secondary dark:hover:bg-dark-secondary transition-all duration-300 transform ${
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
+      } z-40`}
       onClick={scrollToTop}
       aria-label="Back to top"
     >

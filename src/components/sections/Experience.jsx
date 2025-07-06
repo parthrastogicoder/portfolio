@@ -66,7 +66,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-20 bg-white">
+    <section id="experience" className="py-20 bg-white dark:bg-dark-bg transition-colors duration-300">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
@@ -75,16 +75,16 @@ const Experience = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-textColor mb-4">Experience</h2>
-          <div className="w-24 h-1 bg-primary mx-auto"></div>
-          <p className="mt-6 text-lightText max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-textColor dark:text-dark-text mb-4">Experience</h2>
+          <div className="w-24 h-1 bg-primary dark:bg-dark-primary mx-auto"></div>
+          <p className="mt-6 text-lightText dark:text-dark-light-text max-w-3xl mx-auto">
             My professional journey includes research and development roles where I've applied
             my technical skills to solve real-world problems.
           </p>
         </motion.div>
 
         <motion.div 
-          className="relative border-l-2 border-primary pl-8 ml-4 md:ml-12 space-y-12"
+          className="relative border-l-2 border-primary dark:border-dark-primary pl-8 ml-4 md:ml-12 space-y-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -96,19 +96,19 @@ const Experience = () => {
               className="relative"
               variants={itemVariants}
             >
-              <div className="absolute -left-[42px] bg-primary text-white p-2 rounded-full">
+              <div className="absolute -left-[42px] bg-primary dark:bg-dark-primary text-white p-2 rounded-full">
                 <FaBriefcase />
               </div>
-              <div className="bg-gray-50 rounded-lg p-6 shadow-md">
-                <h3 className="text-xl font-bold text-textColor">{exp.title}</h3>
-                <h4 className="text-lg font-semibold text-primary mb-2">{exp.company}</h4>
-                <div className="flex items-center text-lightText mb-4">
+              <div className="bg-gray-50 dark:bg-dark-surface rounded-lg p-6 shadow-md dark:shadow-dark-surface/50">
+                <h3 className="text-xl font-bold text-textColor dark:text-dark-text">{exp.title}</h3>
+                <h4 className="text-lg font-semibold text-primary dark:text-dark-primary mb-2">{exp.company}</h4>
+                <div className="flex items-center text-lightText dark:text-dark-light-text mb-4">
                   <FaCalendarAlt className="mr-2" />
                   <span>{exp.duration}</span>
                 </div>
                 <ul className="space-y-2">
                   {exp.description.map((item, i) => (
-                    <li key={i} className="text-lightText flex">
+                    <li key={i} className="text-lightText dark:text-dark-light-text flex">
                       <span className="mr-2">•</span>
                       <span>{item}</span>
                     </li>

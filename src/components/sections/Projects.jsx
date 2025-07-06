@@ -74,7 +74,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gray-50">
+    <section id="projects" className="py-20 bg-gray-50 dark:bg-dark-surface transition-colors duration-300">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
@@ -83,9 +83,9 @@ const Projects = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-textColor mb-4">Projects</h2>
-          <div className="w-24 h-1 bg-primary mx-auto"></div>
-          <p className="mt-6 text-lightText max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-textColor dark:text-dark-text mb-4">Projects</h2>
+          <div className="w-24 h-1 bg-primary dark:bg-dark-primary mx-auto"></div>
+          <p className="mt-6 text-lightText dark:text-dark-light-text max-w-3xl mx-auto">
             Here are some of the projects I've worked on, showcasing my skills in machine learning,
             software development, and problem-solving.
           </p>
@@ -101,10 +101,10 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div 
               key={index} 
-              className="bg-white rounded-lg overflow-hidden shadow-lg"
+              className="bg-white dark:bg-dark-card rounded-lg overflow-hidden shadow-lg dark:shadow-dark-surface/50 hover:shadow-xl dark:hover:shadow-dark-card/50 transition-shadow duration-300"
               variants={itemVariants}
             >
-              <div className="h-48 bg-gray-300 relative overflow-hidden">
+              <div className="h-48 bg-gray-300 dark:bg-dark-border relative overflow-hidden">
                 <img 
                   src={`/portfolio/images/${project.image}`} 
                   alt={project.title}
@@ -115,11 +115,11 @@ const Projects = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-textColor mb-2">{project.title}</h3>
-                <p className="text-lightText mb-4">{project.description}</p>
+                <h3 className="text-xl font-bold text-textColor dark:text-dark-text mb-2">{project.title}</h3>
+                <p className="text-lightText dark:text-dark-light-text mb-4">{project.description}</p>
                 <div className="mb-4 flex flex-wrap gap-2">
                   {project.technologies.map((tech, i) => (
-                    <span key={i} className="px-3 py-1 bg-blue-100 text-primary text-sm rounded-full">
+                    <span key={i} className="px-3 py-1 bg-blue-100 dark:bg-dark-primary/20 text-primary dark:text-dark-primary text-sm rounded-full">
                       {tech}
                     </span>
                   ))}
@@ -130,7 +130,7 @@ const Projects = () => {
                       href={project.github} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-textColor hover:text-primary transition-colors flex items-center"
+                      className="text-textColor dark:text-dark-text hover:text-primary dark:hover:text-dark-primary transition-colors flex items-center"
                       aria-label={`GitHub repository for ${project.title}`}
                     >
                       <FaGithub className="mr-2" /> Code
@@ -141,7 +141,7 @@ const Projects = () => {
                       href={project.live} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-textColor hover:text-primary transition-colors flex items-center"
+                      className="text-textColor dark:text-dark-text hover:text-primary dark:hover:text-dark-primary transition-colors flex items-center"
                       aria-label={`Live demo for ${project.title}`}
                     >
                       <FaExternalLinkAlt className="mr-2" /> Live Demo
